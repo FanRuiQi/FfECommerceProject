@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/bg_wdf">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_142"
+        android:background="@drawable/shape_cursor_leftandright">
+
+
+        <TextView
+            android:id="@+id/mine_text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_60"
+            android:text="ff"/>
+
+        <LinearLayout
+            android:layout_below="@+id/mine_text_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_70"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/mine_layout_Information"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:layout_marginBottom="@dimen/dp_3">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_marginLeft="@dimen/dp_24"
+                    android:src="@mipmap/grzl_wdf"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="个人资料"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_75"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_marginLeft="@dimen/dp_68"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="#000"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_alignParentBottom="true">
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="@dimen/dp_10"
+                android:id="@+id/mine_layout_Circle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginBottom="@dimen/dp_3">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_marginLeft="@dimen/dp_24"
+                    android:src="@mipmap/wdqz_wdf"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的圈子"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_75"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_marginLeft="@dimen/dp_68"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="#000"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_alignParentBottom="true">
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="@dimen/dp_10"
+                android:id="@+id/mine_layout_Footprint"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:layout_marginBottom="@dimen/dp_3">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_marginLeft="@dimen/dp_24"
+                    android:src="@mipmap/zj_wdf"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的足迹"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_75"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_marginLeft="@dimen/dp_68"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="#000"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/dp_5">
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="@dimen/dp_10"
+                android:id="@+id/mine_layout_Wallet"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginBottom="@dimen/dp_3">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_marginLeft="@dimen/dp_24"
+                    android:src="@mipmap/wdqb_wdf"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的钱包"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_75"/>
+
+                <RelativeLayout
+                    android:layout_marginTop="-10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_marginLeft="@dimen/dp_68"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:background="#000"
+                    android:layout_alignParentBottom="true">
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="@dimen/dp_10"
+                android:id="@+id/mine_layout_Address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_35"
+                android:layout_marginBottom="@dimen/dp_3">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_marginLeft="@dimen/dp_24"
+                    android:src="@mipmap/shdz_wdf"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的收货地址"
+                    android:textSize="@dimen/sp_14"
+                    android:layout_marginLeft="@dimen/dp_75"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    android:layout_marginLeft="@dimen/dp_68"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="#000"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_alignParentBottom="true">
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/mine_image_head"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_102"
+        fresco:placeholderImage="@mipmap/touxiang_wdf"
+        fresco:roundAsCircle="true"/>
+</RelativeLayout>

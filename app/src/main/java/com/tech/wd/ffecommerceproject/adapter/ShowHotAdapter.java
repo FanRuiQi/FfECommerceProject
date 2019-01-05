@@ -1,0 +1,86 @@
+package com.tech.wd.ffecommerceproject.adapter;
+
+import android.content.Context;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.tech.wd.ffecommerceproject.R;
+import com.tech.wd.ffecommerceproject.bean.ShowHotBean;
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class ShowHotAdapter extends RecyclerView.Adapter<ShowHotAdapter.ViewHolder>{
+
+    private Context mContext;
+    private List<ShowHotBean.ResultBean.RxxpBean.CommodityListBean> list;
+
+    public ShowHotAdapter(Context context, List<ShowHotBean.ResultBean.RxxpBean.CommodityListBean> list) {
+        mContext = context;
+        this.list = list;
+
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = View.inflate(mContext, R.layout.item_homepage_showhot, null);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
+    }
+
+    public interface onItemClickListener{
+        void onItemClick(int commodityId);
+    }
+    private onItemClickListener mOnItemClickListener;
+
+    public void setOnItemClickListener(onItemClickListener onItemClickListener){
+        mOnItemClickListener=onItemClickListener;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+
+
+
+            holder.mTextView_name.setText(list.get(position).getCommodityName());
+            holder.mTextView_price.setText("￥"+list.get(position).getPrice()+"");
+            Uri uri = Uri.parse(list.get(position).getMasterPic());
+            holder.mSimpleDraweeView.setImageURI(uri);
+
+            if (mOnItemClickListener!=null){
+                int commodityId = list.get(position).getCommodityId();
+                mOnItemClickListener.onItemClick(commodityId);
+
+            }
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.home_hot_simple)
+        SimpleDraweeView mSimpleDraweeView;
+
+        @BindView(R.id.home_hot_name)
+        TextView mTextView_name;
+
+        @BindView(R.id.home_hot_price)
+        TextView mTextView_price;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this,itemView);
+        }
+    }
+}

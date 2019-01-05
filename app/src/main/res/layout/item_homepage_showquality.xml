@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center"
+    android:paddingRight="@dimen/dp_10"
+    android:paddingBottom="@dimen/dp_10"
+    android:orientation="vertical"
+    >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_10"
+            android:background="@drawable/shape_item_showhot">
+
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/item_home_qua_simple"
+            android:layout_width="@dimen/dp_151"
+            android:layout_height="@dimen/dp_174" />
+
+        <TextView
+            android:id="@+id/item_home_qua_name"
+            android:layout_width="match_parent"
+            android:maxEms="5"
+            android:layout_height="@dimen/dp_20"
+            android:layout_below="@id/home_hot_simple"
+            android:textSize="@dimen/sp_12"
+            android:textColor="#666666"
+            android:layout_marginTop="@dimen/dp_10"
+            android:singleLine="true"
+            android:layout_gravity="left"
+            android:text="AAAA"/>
+        <TextView
+            android:id="@+id/item_home_qua_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/home_hot_name"
+            android:textColor="#F00"
+            android:textSize="@dimen/sp_14"
+            android:layout_marginTop="@dimen/dp_10"
+
+            android:text="￥0.0"/>
+
+        </LinearLayout>
+
+</LinearLayout>

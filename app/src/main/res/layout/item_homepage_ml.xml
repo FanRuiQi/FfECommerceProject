@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp_312"
+    android:layout_height="@dimen/dp_128"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/dp_10"
+    android:layout_gravity="center"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_312"
+        android:layout_height="@dimen/dp_118"
+        android:background="@drawable/shape_item_showhot"
+        android:padding="@dimen/dp_10"
+        >
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/item_home_ml_img"
+        android:layout_width="@dimen/dp_85"
+        android:layout_height="@dimen/dp_98"
+        fresco:placeholderImage="@color/colorAccent"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_98"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_home_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:textSize="@dimen/sp_12"
+            android:textColor="#666666"
+            android:text="ff"/>
+
+        <TextView
+            android:id="@+id/item_home_text_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:textSize="@dimen/sp_12"
+            android:textColor="#ff0000"
+            android:text="ff"/>
+    </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

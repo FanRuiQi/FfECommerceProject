@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools"
+    android:paddingTop="@dimen/dp_20">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/dp_24"
+        android:layout_marginRight="@dimen/dp_24"
+        android:background="@drawable/shape_item_showhot">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginTop="@dimen/dp_10"
+
+            android:gravity="center_vertical">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/item_circle_img_tx"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
+                fresco:placeholderImage="@mipmap/touxiang_xbn"
+                fresco:roundAsCircle="true"/>
+
+            <TextView
+                android:id="@+id/item_circle_text_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="@dimen/sp_14"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:text="ff"/>
+
+            <TextView
+                android:id="@+id/item_circle_text_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="@dimen/sp_10"
+                android:layout_marginLeft="@dimen/dp_120"
+                android:text="ff"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_circle_text_nr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#666666"
+            android:textSize="@dimen/sp_12"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="ff"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/item_circle_img_rn1"
+                android:layout_width="@dimen/dp_140"
+                android:layout_height="@dimen/dp_140"
+                fresco:placeholderImage="@mipmap/touxiang_xbn"
+                />
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/item_circle_img_rn2"
+                android:layout_width="@dimen/dp_140"
+                android:layout_height="@dimen/dp_140"
+                android:layout_marginLeft="@dimen/dp_10"
+                fresco:placeholderImage="@mipmap/touxiang_xbn"
+                />
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20">
+
+            <ImageView
+                android:id="@+id/item_circle_img_dz"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                fresco:placeholderImage="@mipmap/touxiang_xbn"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dp_40"
+                android:src="@mipmap/common_btn_prise_n_xhdpi"/>
+
+            <TextView
+                android:id="@+id/item_circle_text_dzNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="@dimen/sp_12"
+                android:layout_alignParentRight="true"
+                android:text="ff"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
