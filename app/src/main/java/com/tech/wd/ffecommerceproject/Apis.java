@@ -15,7 +15,7 @@ public class Apis {
     //查询一级商品类目
     public static final String URL_CIRCLE_ONE_LIST="http://172.17.8.100/small/commodity/v1/findFirstCategory";
     //查询二级商品类目
-    public static final String URL_CIRCLE_TWO_LIST="http://172.17.8.100/small/commodity/v1/findSecondCategory?firstCategoryId=$s";
+    public static final String URL_CIRCLE_TWO_LIST="http://172.17.8.100/small/commodity/v1/findSecondCategory?firstCategoryId=%s";
     //搜索列表
     public static final String URL_HOMEPAGE_SEARCH_LIST="http://172.17.8.100/small/commodity/v1/findCommodityByKeyword?keyword=%s&page=2&count=5";
     //商品详情
@@ -24,6 +24,8 @@ public class Apis {
     public static final String URL_CIRCLE_DZ="http://172.17.8.100/small/circle/verify/v1/addCircleGreat";
     //取消点赞
     public static final String URL_CIRCLE_QZ_DZ="http://172.17.8.100/small/circle/verify/v1/cancelCircleGreat";
+    //根据二级类目查询商品信息
+    public static final String URL_BY_TWO_LIST_SHOW_LIST="http://172.17.8.100/small/commodity/v1/findCommodityByCategory?categoryId=%s";
 
 
 }

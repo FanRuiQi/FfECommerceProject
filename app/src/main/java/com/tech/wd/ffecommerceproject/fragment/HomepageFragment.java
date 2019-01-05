@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.gson.Gson;
 import com.stx.xhb.xbanner.XBanner;
 import com.stx.xhb.xbanner.transformers.Transformer;
 import com.tech.wd.ffecommerceproject.Apis;
@@ -41,6 +42,7 @@ import com.tech.wd.ffecommerceproject.bean.PopuoneBean;
 import com.tech.wd.ffecommerceproject.bean.PoputwoBean;
 import com.tech.wd.ffecommerceproject.bean.SearchBean;
 import com.tech.wd.ffecommerceproject.bean.ShowHotBean;
+import com.tech.wd.ffecommerceproject.netutil.HttpUtil;
 import com.tech.wd.ffecommerceproject.precenter.IPrecenterImpl;
 import com.tech.wd.ffecommerceproject.view.IView;
 
@@ -121,10 +123,10 @@ public class HomepageFragment extends BaseFragment implements IView{
          mRecyclerView_popu_two = popu.findViewById(R.id.item_popu_recycleView_two);
 
         mIPrecenter.startRequestData(Apis.URL_CIRCLE_ONE_LIST,null, PopuoneBean.class,1,null,null);
-        //mIPrecenter.startRequestData(String.format(Apis.URL_CIRCLE_TWO_LIST,"1001002"),null, PoputwoBean.class,1,null,null);
+        mIPrecenter.startRequestData(String.format(Apis.URL_CIRCLE_TWO_LIST,"1001002"),null, PoputwoBean.class,1,null,null);
 
         PopupWindow window = new PopupWindow(popu, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-        window.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+        window.setBackgroundDrawable(new ColorDrawable());
         window.setFocusable(true);
         window.setTouchable(true);
         window.showAsDropDown(mImageView);
@@ -292,6 +294,7 @@ public class HomepageFragment extends BaseFragment implements IView{
             poputwoAdapter.setOnItemClickListener(new PoputwoAdapter.onItemClickListener() {
                 @Override
                 public void onItemClick(String id) {
+
 
                 }
             });
