@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_10"
+    android:background="@drawable/shape_item_showhot"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_5">
+
+            <TextView
+                android:id="@+id/item_address_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_12"
+                android:textColor="#666666"
+                android:text="啊哈"/>
+            <TextView
+                android:id="@+id/item_address_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textSize="@dimen/sp_12"
+                android:textColor="#666666"
+                android:text="啊哈"/>
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/item_address_textView"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:textSize="@dimen/sp_12"
+            android:textColor="#666666"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:background="#ccc" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+           <RadioButton
+               android:id="@+id/item_address_check"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="@dimen/sp_12"
+               android:layout_centerVertical="true"
+               android:checked="false"
+               android:textColor="#666666"
+               android:text="设为默认地址"/>
+            <Button
+                android:id="@+id/item_address_delete"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_20"
+                android:textSize="@dimen/sp_12"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@drawable/shape_item_all_btn_dele"
+                android:textColor="#666666"
+                android:text="删除"/>
+            <Button
+                android:id="@+id/item_address_update"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_20"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_toLeftOf="@+id/item_address_delete"
+                android:layout_marginRight="@dimen/dp_10"
+                android:background="@drawable/shape_item_all_btn_dele"
+                android:textColor="#666666"
+                android:text="修改"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+
+

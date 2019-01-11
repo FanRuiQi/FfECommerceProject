@@ -46,7 +46,7 @@ public class ShowHotAdapter extends RecyclerView.Adapter<ShowHotAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
 
 
@@ -55,11 +55,17 @@ public class ShowHotAdapter extends RecyclerView.Adapter<ShowHotAdapter.ViewHold
             Uri uri = Uri.parse(list.get(position).getMasterPic());
             holder.mSimpleDraweeView.setImageURI(uri);
 
-            if (mOnItemClickListener!=null){
-                int commodityId = list.get(position).getCommodityId();
-                mOnItemClickListener.onItemClick(commodityId);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mOnItemClickListener!=null){
+                        int commodityId = list.get(position).getCommodityId();
+                        mOnItemClickListener.onItemClick(commodityId);
 
-            }
+                    }
+                }
+            });
+
 
     }
 

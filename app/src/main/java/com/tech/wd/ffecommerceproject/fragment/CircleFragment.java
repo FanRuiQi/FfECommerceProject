@@ -27,7 +27,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CircleFragment extends BaseFragment implements IView{
+public class CircleFragment extends BaseFragment implements IView{  //圈子页
 
     @BindView(R.id.fragment_circle_rv)
     RecyclerView mRecyclerView;
@@ -35,6 +35,7 @@ public class CircleFragment extends BaseFragment implements IView{
     private String mSsionId;
 
     private Boolean bo=true;
+    private String mUserId;
 
     @Override
     public void initData(View view) {
@@ -45,13 +46,14 @@ public class CircleFragment extends BaseFragment implements IView{
 
         SharedPreferences sp = getActivity().getSharedPreferences("sp", Context.MODE_PRIVATE);
         mSsionId = sp.getString("sessionId", "");
+         mUserId = sp.getString("userId", null);
         requestData();
     }
 
     private void requestData() {
 
         HashMap<String, String> map = new HashMap<>();
-        mIPrecenter.startRequestData(Apis.URL_CIRCLE_SHOW_LIST, map,CircleBean.class,2,"615",mSsionId);
+        mIPrecenter.startRequestData(Apis.URL_CIRCLE_SHOW_LIST, map,CircleBean.class,2,mUserId,mSsionId);
 
     }
 
@@ -78,8 +80,8 @@ public class CircleFragment extends BaseFragment implements IView{
                     map.put("circleId",id+"");
                     Toast.makeText(getActivity(),id+"",Toast.LENGTH_SHORT).show();
 
-                    mIPrecenter.startRequestData(Apis.URL_CIRCLE_DZ,map,null,3,"615",mSsionId);
-                    mIPrecenter.startRequestData(Apis.URL_CIRCLE_SHOW_LIST, map,CircleBean.class,2,"615",mSsionId);
+                    mIPrecenter.startRequestData(Apis.URL_CIRCLE_DZ,map,null,3,mUserId,mSsionId);
+                    mIPrecenter.startRequestData(Apis.URL_CIRCLE_SHOW_LIST, map,CircleBean.class,2,mUserId,mSsionId);
 
                 }else {
 
@@ -87,12 +89,13 @@ public class CircleFragment extends BaseFragment implements IView{
                     map1.put("circleId",id+"");
                     Toast.makeText(getActivity(),id+"",Toast.LENGTH_SHORT).show();
 
-                    mIPrecenter.startRequestData(Apis.URL_CIRCLE_QZ_DZ,map1,null,4,"615",mSsionId);
-                    mIPrecenter.startRequestData(Apis.URL_CIRCLE_SHOW_LIST, map1,CircleBean.class,2,"615",mSsionId);
+                    mIPrecenter.startRequestData(Apis.URL_CIRCLE_QZ_DZ,map1,null,4,mUserId,mSsionId);
+                    mIPrecenter.startRequestData(Apis.URL_CIRCLE_SHOW_LIST, map1,CircleBean.class,2,mUserId,mSsionId);
 
                 }
 
             }
         });
     }
+
 }

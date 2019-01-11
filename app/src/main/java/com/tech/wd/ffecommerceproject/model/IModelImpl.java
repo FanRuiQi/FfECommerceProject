@@ -65,6 +65,8 @@ public class IModelImpl implements IModel{
                 @Override
                 public void HttpResponse(String json) {
 
+                    Object o = new Gson().fromJson(json, clazz);
+                    myCallBack.setData(o);
                 }
             });
         }else if (type==4){
@@ -77,6 +79,36 @@ public class IModelImpl implements IModel{
                 @Override
                 public void HttpResponse(String json) {
 
+                    Object o = new Gson().fromJson(json, clazz);
+                    myCallBack.setData(o);
+                }
+            });
+        }else if (type==5){
+            HttpUtil.getInterface().doHeadPut(url,map, userId, sessionId, new HttpUtil.HttpUtilInterface() {
+                @Override
+                public void HttpFailure() {
+
+                }
+
+                @Override
+                public void HttpResponse(String json) {
+
+                    Object o = new Gson().fromJson(json, clazz);
+                    myCallBack.setData(o);
+                }
+            });
+        }else if (type==6){
+            HttpUtil.getInterface().doHeadPostPut(url,map, userId, sessionId, new HttpUtil.HttpUtilInterface() {
+                @Override
+                public void HttpFailure() {
+
+                }
+
+                @Override
+                public void HttpResponse(String json) {
+
+                    Object o = new Gson().fromJson(json, clazz);
+                    myCallBack.setData(o);
                 }
             });
         }

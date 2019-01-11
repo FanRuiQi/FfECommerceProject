@@ -45,4 +45,6 @@ dependencies {
     implementation "com.hwangjr.rxbus:rxbus:$rootProject.rxbus"
     implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.adapterRxjava"
     implementation 'com.github.xiaohaibin:XBanner:1.6.1'
+    implementation "com.daimajia.swipelayout:library:1.2.0@aar"
+
 }

@@ -47,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity implements IView{
 
         if (phone.isEmpty()||pwd.isEmpty()){
 
-            Toast.makeText(RegisterActivity.this,"输入不能为空!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this,R.string.Is_Input_null,Toast.LENGTH_SHORT).show();
         }else {
             Map<String, String> map = new HashMap<>();
             map.put("phone",phone);
@@ -69,7 +69,14 @@ public class RegisterActivity extends AppCompatActivity implements IView{
         if (message.equals("注册成功")){
             startActivity(new Intent(RegisterActivity.this,MainActivity.class));
         }else {
-            Toast.makeText(RegisterActivity.this,"注册失败,已存在此用户!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterActivity.this,R.string.ts_Reg_Fail,Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mIPrecenter.onDetach();
+    }
+
 }

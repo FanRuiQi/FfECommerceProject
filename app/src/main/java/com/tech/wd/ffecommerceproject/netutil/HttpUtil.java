@@ -340,11 +340,53 @@ public class HttpUtil {
         FormBody body = form.build();
 
         Request request = new Request.Builder()
-                .delete()
+                .delete(body)
+                .url(url)
                 .addHeader("userId", userId)
                 .addHeader("sessionId", sessionId)
+                .build();
+        Log.e("URL_",request.body().toString());
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        httpUtilInterface.HttpFailure();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String json = response.body().string();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        httpUtilInterface.HttpResponse(json);
+                    }
+                });
+            }
+        });
+    }
+
+    public void doHeadPostPut(String url, Map<String, String> map, String userId, String sessionId, final HttpUtilInterface httpUtilInterface){
+
+        FormBody.Builder form = new FormBody.Builder();
+
+        if (map != null) {
+            for (String key : map.keySet()) {
+                form.add(key, map.get(key));
+            }
+        }
+
+        FormBody body = form.build();
+
+        Request request = new Request.Builder()
+                .put(body)
                 .url(url)
-                .delete(body)
+                .addHeader("userId", userId)
+                .addHeader("sessionId", sessionId)
                 .build();
         Log.e("URL_",request.body().toString());
         client.newCall(request).enqueue(new Callback() {

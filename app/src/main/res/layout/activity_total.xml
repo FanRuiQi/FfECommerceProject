@@ -31,9 +31,9 @@
             android:layout_width="@dimen/dp_26"
             android:layout_height="@dimen/dp_26"
             android:button="@null"
+            android:checked="true"
             android:layout_marginLeft="@dimen/dp_32"
-
-            android:background="@mipmap/tab_home_bottom_shouye"
+            android:background="@drawable/home_selector"
             />
         <RadioButton
             android:id="@+id/tab_home_bottom_quanzi"
@@ -41,7 +41,7 @@
             android:layout_height="@dimen/dp_34"
             android:button="@null"
             android:layout_marginLeft="@dimen/dp_32"
-            android:background="@mipmap/tab_home_bottom_quanzi"
+            android:background="@drawable/home_selector_qz"
             />
         <RadioButton
             android:id="@+id/tab_home_bottom_che"
@@ -57,7 +57,7 @@
             android:layout_height="@dimen/dp_34"
             android:button="@null"
             android:layout_marginLeft="@dimen/dp_36"
-            android:background="@mipmap/tab_home_bottom_zhangdan"
+            android:background="@drawable/home_selector_zhangdan"
             />
         <RadioButton
             android:id="@+id/tab_home_bottom_wode"
@@ -66,7 +66,7 @@
             android:button="@null"
             android:layout_marginLeft="@dimen/dp_32"
             android:layout_marginRight="@dimen/dp_32"
-            android:background="@mipmap/tab_home_bottom_wode"
+            android:background="@drawable/home_selector_myn"
             />
     </RadioGroup>
 

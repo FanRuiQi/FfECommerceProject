@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/sp_16"
+        android:text="我的收货地址"/>
+
+    <TextView
+        android:id="@+id/mine_address_text_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/sp_12"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_5"
+        android:text="完成"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mine_address_rv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_400"
+        android:layout_marginTop="@dimen/dp_80"
+        android:layout_marginLeft="@dimen/dp_24"
+        android:layout_marginRight="@dimen/dp_24"/>
+
+
+    <Button
+        android:id="@+id/mine_btn_addAddress"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="@dimen/dp_30"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:background="@drawable/shape_item_all_btn_zf"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_centerHorizontal="true"
+        android:text="新增收货地址"/>
+
+
+</RelativeLayout>

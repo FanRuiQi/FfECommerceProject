@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FfECommerceProject</string>
+    <string name="ts_SpIsSelected">请至少选择一件商品</string>
+    <string name="ts_Login_Fail">登录失败!</string>
+    <string name="Is_Input_null">输入不能为空!</string>
+    <string name="ts_Reg_Fail">注册失败,已存在此用户!</string>
 </resources>

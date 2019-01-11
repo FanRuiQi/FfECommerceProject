@@ -36,9 +36,17 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         return holder;
     }
 
+    public interface onItemClickListener{
+        void onItemClick(int commodityId);
+    }
+    private onItemClickListener mOnItemClickListener;
+
+    public void setOnItemClickListener(onItemClickListener onItemClickListener){
+        mOnItemClickListener=onItemClickListener;
+    }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
 
 
@@ -48,6 +56,16 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             Uri uri = Uri.parse(list.get(position).getMasterPic());
             holder.mSimpleDraweeView.setImageURI(uri);
 
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mOnItemClickListener!=null){
+                    int commodityId = list.get(position).getCommodityId();
+                    mOnItemClickListener.onItemClick(commodityId);
+
+                }
+            }
+        });
     }
 
     @Override

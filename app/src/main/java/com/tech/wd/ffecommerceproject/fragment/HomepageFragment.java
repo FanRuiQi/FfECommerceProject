@@ -1,5 +1,6 @@
 package com.tech.wd.ffecommerceproject.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -30,6 +31,7 @@ import com.stx.xhb.xbanner.XBanner;
 import com.stx.xhb.xbanner.transformers.Transformer;
 import com.tech.wd.ffecommerceproject.Apis;
 import com.tech.wd.ffecommerceproject.R;
+import com.tech.wd.ffecommerceproject.activity.DetailActivity;
 import com.tech.wd.ffecommerceproject.activity.TotalActivity;
 import com.tech.wd.ffecommerceproject.adapter.PopuoneAdapter;
 import com.tech.wd.ffecommerceproject.adapter.PoputwoAdapter;
@@ -46,6 +48,7 @@ import com.tech.wd.ffecommerceproject.netutil.HttpUtil;
 import com.tech.wd.ffecommerceproject.precenter.IPrecenterImpl;
 import com.tech.wd.ffecommerceproject.view.IView;
 
+import org.greenrobot.eventbus.EventBus;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -57,7 +60,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class HomepageFragment extends BaseFragment implements IView{
+public class HomepageFragment extends BaseFragment implements IView{  //首页
 
     @BindView(R.id.home_recyclerView_showHot)
     RecyclerView mRecyclerView_showHot;
@@ -103,7 +106,7 @@ public class HomepageFragment extends BaseFragment implements IView{
     @Override
     public void initData(View view) {
         ButterKnife.bind(this,view);
-
+        //EventBus.getDefault().register(this);
 
         mIPrecenter = new IPrecenterImpl(this);
         requestData();
@@ -115,7 +118,7 @@ public class HomepageFragment extends BaseFragment implements IView{
     }
 
     @OnClick(R.id.home_image_popupWindow)
-    public void onImgClick(){
+    public void onImgClick(){ //点击弹出Popup
 
         final View popu = View.inflate(getActivity(),R.layout.item_popupwidow_list_one, null);
 
@@ -177,9 +180,10 @@ public class HomepageFragment extends BaseFragment implements IView{
     }
 
     private void requestData() {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();  //请求首页展示数据
         mIPrecenter.startRequestData(Apis.URL_HOMEPAGE_SHOW_SHOP,map, ShowHotBean.class,1,null,null);
 
+        //请求轮播数据
         mIPrecenter.startRequestData(Apis.URL_HOMEPAGE_BANNER,map, BannerBean.class,1,null,null);
 
     }
@@ -189,7 +193,7 @@ public class HomepageFragment extends BaseFragment implements IView{
         if (data instanceof ShowHotBean){
 
             ShowHotBean showHotBean = (ShowHotBean) data;
-            List<ShowHotBean.ResultBean.RxxpBean> rxxp = showHotBean.getResult().getRxxp();
+            List<ShowHotBean.ResultBean.RxxpBean> rxxp = showHotBean.getResult().getRxxp();  //热销新品
             List<ShowHotBean.ResultBean.RxxpBean.CommodityListBean> commodityList = rxxp.get(0).getCommodityList();
             ShowHotAdapter showHotAdapter = new ShowHotAdapter(getActivity(), commodityList);
             mRecyclerView_showHot.setAdapter(showHotAdapter);
@@ -198,23 +202,40 @@ public class HomepageFragment extends BaseFragment implements IView{
                 @Override
                 public void onItemClick(int commodityId) {
 
-
+                EventBus.getDefault().postSticky(commodityId);
+                  startActivity(new Intent(getActivity(), DetailActivity.class));
                 }
             });
 
-            List<ShowHotBean.ResultBean.MlssBean> mlss = showHotBean.getResult().getMlss();
+            List<ShowHotBean.ResultBean.MlssBean> mlss = showHotBean.getResult().getMlss(); //魔力时尚
             List<ShowHotBean.ResultBean.MlssBean.CommodityListBeanXX> commodityList1 = mlss.get(0).getCommodityList();
             ShowMagicAdapter magicAdapter = new ShowMagicAdapter(getActivity(), commodityList1);
             mRecyclerView_showMagic.setAdapter(magicAdapter);
             mRecyclerView_showMagic.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+            magicAdapter.setOnItemClickListener(new ShowMagicAdapter.onItemClickListener() {
+                @Override
+                public void onItemClick(int commodityId) {
 
-            List<ShowHotBean.ResultBean.PzshBean> pzsh = showHotBean.getResult().getPzsh();
+                    EventBus.getDefault().postSticky(commodityId);
+                    startActivity(new Intent(getActivity(), DetailActivity.class));
+                }
+            });
+
+            List<ShowHotBean.ResultBean.PzshBean> pzsh = showHotBean.getResult().getPzsh();   //品质生活
             List<ShowHotBean.ResultBean.PzshBean.CommodityListBeanX> commodityList2 = pzsh.get(0).getCommodityList();
             ShowQuaAdapter quaAdapter = new ShowQuaAdapter(getActivity(), commodityList2);
             mRecyclerView_showQuality.setAdapter(quaAdapter);
             mRecyclerView_showQuality.setLayoutManager(new GridLayoutManager(getActivity(),2));
+            quaAdapter.setOnItemClickListener(new ShowQuaAdapter.onItemClickListener() {
+                @Override
+                public void onItemClick(int commodityId) {
 
-        }else if (data instanceof BannerBean){
+                    EventBus.getDefault().postSticky(commodityId);
+                    startActivity(new Intent(getActivity(), DetailActivity.class));
+                }
+            });
+
+        }else if (data instanceof BannerBean){   //轮播图
 
             BannerBean bannerBean = (BannerBean) data;
             final List<BannerBean.ResultBean> beans = bannerBean.getResult();
@@ -246,7 +267,7 @@ public class HomepageFragment extends BaseFragment implements IView{
             mXBanner.setPageTransformer(Transformer.Zoom);
             mXBanner.setPageChangeDuration(1);
 
-        }else if (data instanceof SearchBean){
+        }else if (data instanceof SearchBean){   //搜索商品
             SearchBean searchBean = (SearchBean) data;
             List<SearchBean.ResultBean> result = searchBean.getResult();
 
@@ -265,10 +286,19 @@ public class HomepageFragment extends BaseFragment implements IView{
                 mRecyclerView_search.setAdapter(searchAdapter);
                 mRecyclerView_search.setLayoutManager(new GridLayoutManager(getActivity(),2));
 
+                searchAdapter.setOnItemClickListener(new SearchAdapter.onItemClickListener() {
+                    @Override
+                    public void onItemClick(int commodityId) {
+                        Toast.makeText(getActivity(),"ff",Toast.LENGTH_SHORT).show();
+
+                        EventBus.getDefault().postSticky(commodityId);
+                        startActivity(new Intent(getActivity(), DetailActivity.class));
+                    }
+                });
 
             }
 
-        }else if (data instanceof PopuoneBean){
+        }else if (data instanceof PopuoneBean){  //Popup一级列表
 
             PopuoneBean popuoneBean = (PopuoneBean) data;
             List<PopuoneBean.ResultBean> result = popuoneBean.getResult();
@@ -283,7 +313,7 @@ public class HomepageFragment extends BaseFragment implements IView{
 
                 }
             });
-        }else if (data instanceof PoputwoBean){
+        }else if (data instanceof PoputwoBean){  //Popup二级列表
 
             PoputwoBean poputwoBean = (PoputwoBean) data;
             List<PoputwoBean.ResultBean> result = poputwoBean.getResult();

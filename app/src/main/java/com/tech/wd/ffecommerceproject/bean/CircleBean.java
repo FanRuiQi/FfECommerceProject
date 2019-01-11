@@ -63,6 +63,7 @@ public class CircleBean {
         private String nickName;
         private int userId;
         private int whetherGreat;
+        private int bo;
 
         public int getCommodityId() {
             return commodityId;
@@ -142,6 +143,14 @@ public class CircleBean {
 
         public void setWhetherGreat(int whetherGreat) {
             this.whetherGreat = whetherGreat;
+        }
+
+        public int getBo() {
+            return bo;
+        }
+
+        public void setBo(int bo) {
+            this.bo = bo;
         }
     }
 }

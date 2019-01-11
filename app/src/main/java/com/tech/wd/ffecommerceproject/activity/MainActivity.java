@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements IView{  //登录�
 
         if (phone.isEmpty()||pwd.isEmpty()){
 
-            Toast.makeText(MainActivity.this,"输入不能为空!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,R.string.Is_Input_null,Toast.LENGTH_SHORT).show();
         }else {
 
 
@@ -142,15 +142,18 @@ public class MainActivity extends AppCompatActivity implements IView{  //登录�
             }
             LoginBean.ResultBean beanResult = loginBean.getResult();
             String sessionId = beanResult.getSessionId();
+            String userId = beanResult.getUserId();
 
             SharedPreferences.Editor edit = mPreferences.edit();  //保存用户的sessionId
+
             edit.putString("sessionId",sessionId);
+            edit.putString("userId",userId);
             edit.commit();
 
             startActivity(new Intent(MainActivity.this,TotalActivity.class));
             //Toast.makeText(MainActivity.this,"登录成功!",Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(MainActivity.this,"登录失败!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,R.string.ts_Login_Fail,Toast.LENGTH_SHORT).show();
         }
     }
 }

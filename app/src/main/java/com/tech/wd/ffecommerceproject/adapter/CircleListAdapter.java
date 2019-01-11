@@ -71,6 +71,17 @@ public class CircleListAdapter extends RecyclerView.Adapter<CircleListAdapter.Vi
                 @Override
                 public void onClick(View view) {
                     if (mOnImgClickListener!=null){
+                        /*if (list.get(position).getBo()==0){
+
+                        }else {
+
+                        }
+                        int bo = list.get(position).getBo();
+                        if (bo!=0){
+
+                            int greatNum = list.get(position).getGreatNum();
+                            greatNum++;
+                        }*/
                         int id = list.get(position).getId();
                         int great = list.get(position).getWhetherGreat();
 

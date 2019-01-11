@@ -20,6 +20,12 @@
         </activity>
         <activity android:name=".activity.RegisterActivity"/>
         <activity android:name=".activity.TotalActivity"/>
+        <activity android:name=".activity.DetailActivity"/>
+        <activity android:name=".activity.FootPrintActivity"/>
+        <activity android:name=".activity.InformationActivity"/>
+        <activity android:name=".activity.SubmitOrderActivity"/>
+        <activity android:name=".activity.PublishComment"/>
+        <activity android:name=".activity.MineAddressShowActivity"/>
 
     </application>
 

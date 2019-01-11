@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/dp_20"
+    android:paddingTop="@dimen/dp_10"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto">
+
+    <CheckBox
+        android:id="@+id/item_shopCat_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sp_12"
+        android:layout_marginRight="@dimen/sp_12"/>
+
+    <com.daimajia.swipe.SwipeLayout
+        android:id="@+id/swipe"
+        swipe:leftEdgeSwipeOffset="0dp"
+        swipe:rightEdgeSwipeOffset="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_24">
+
+        <LinearLayout
+            android:background="@color/colorAccent"
+            android:id="@+id/bottom_wrapper"
+            android:layout_width="wrap_content"
+            android:weightSum="1"
+            android:layout_marginLeft="2dp"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="删除"
+                android:textColor="@android:color/white"
+                android:background="@color/colorAccent"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/dp_292"
+            android:layout_height="@dimen/dp_97"
+            android:background="@drawable/shape_item_showhot"
+            android:layout_marginRight="@dimen/dp_24">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/item_shopCat_img"
+                android:layout_width="@dimen/dp_81"
+                android:layout_height="@dimen/dp_81"
+                android:layout_margin="@dimen/dp_8"/>
+
+            <TextView
+                android:id="@+id/item_shopCat_title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:layout_marginRight="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginLeft="@dimen/dp_100"/>
+            <TextView
+                android:id="@+id/item_shopCat_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_66"
+                android:textSize="@dimen/sp_12"
+                android:layout_marginLeft="@dimen/dp_100"
+                android:textColor="@color/colorAccent"/>
+
+            <com.tech.wd.ffecommerceproject.view.AddSubView
+                android:id="@+id/item_shopCat_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_66"
+                android:layout_marginLeft="@dimen/dp_210"/>
+        </RelativeLayout>
+    </com.daimajia.swipe.SwipeLayout>
+
+
+
+</LinearLayout>
